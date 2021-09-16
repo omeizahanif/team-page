@@ -7,17 +7,74 @@ body {
     grid-template-rows: auto 1fr auto;
   }
 
+main {
+    margin: 0 auto;
+}
 
 header, main, footer {
     border: 1px solid salmon;
 }
 
 .profile-gallery {
-    
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(15, 70px);
+    row-gap: 5px;
 }
 
 .profile-gallery article {
     border: 1px solid green;
-    height: 283.7px;
+    height: 280px;
     width: 177.4px;
+    
+    display: grid;
+    grid-template-areas: 
+    "avatar title"
+    "name name"
+}
+
+.profile-gallery #product-owner{
+    grid-row: 2 / 6;
+}
+
+.profile-gallery #art-director{
+    grid-row: 3 / 7;
+}
+
+.profile-gallery #tech-lead{
+    grid-row: 6 / 10;
+}
+
+.profile-gallery #ux-designer{
+    grid-row: 7 / 11;
+}
+
+.profile-gallery #developer-one{
+    grid-row: 10 / 14;
+}
+
+.profile-gallery #developer-two{
+    grid-row: 11 / 15;
+}
+
+.profile-gallery article img {
+    width: 100%;
+    height: 210px;
+    grid-area: avatar;
+}
+
+.profile-gallery article .title {
+    writing-mode: vertical-rl;
+    grid-area: title;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.625rem;
+}
+
+.profile-gallery article .name {
+    grid-area: name;
+    font-size: 0.875rem;
+    font-weight: 600;
 }
