@@ -4,29 +4,29 @@ body {
     margin: 0;
     height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 1fr auto;
   }
 
-main {
-    margin: 0 auto;
-}
+  .text-block h2 {
 
-header, main, footer {
-    border: 1px solid salmon;
+    font-size: 1.125rem;
+    text-transform: uppercase;
 }
 
 .profile-gallery {
     display: grid;
-    grid-template-columns: auto;
     grid-template-rows: repeat(15, 70px);
     row-gap: 5px;
+    border: 1px solid salmon;
+    width: 100%;
 }
 
 .profile-gallery article {
     border: 1px solid green;
     height: 280px;
-    width: 177.4px;
-    
+    min-width: 177.4px;
+   /* width: 100%; */
+    margin: 0 auto;
     display: grid;
     grid-template-areas: 
     "avatar title"
@@ -61,6 +61,7 @@ header, main, footer {
     width: 100%;
     height: 210px;
     grid-area: avatar;
+    object-fit: cover;
 }
 
 .profile-gallery article .title {
@@ -77,4 +78,87 @@ header, main, footer {
     grid-area: name;
     font-size: 0.875rem;
     font-weight: 600;
+}
+
+
+@media (min-width: 700px) {
+
+    .container {
+        display: grid;
+        grid-template-areas: 
+        "header intro"
+        "gallery gallery"
+    }
+
+    header {
+        grid-area: header;
+        border: 1px solid salmon;
+        width: 439px;
+        margin-right: 2rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        margin: 0;
+        text-align: left;
+    }
+
+    .text-block {
+        grid-area: intro;
+        border: 1px solid salmon;
+        width: 439px;
+        padding: 0 1rem;
+    }
+
+    
+
+    .text-block p {
+
+        font-size: 1.125rem;
+    }
+
+    .profile-gallery {
+        grid-area: gallery;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(11, 70px);
+        column-gap: 20px;
+        place-content: center;
+
+    }
+
+    .profile-gallery #product-owner{
+        grid-row: 2 / 6;
+        grid-column: 1 / 2;
+    }
+    
+    .profile-gallery #art-director{
+        grid-row: 3 / 7;
+        grid-column: 2 / 3;
+    }
+    
+    .profile-gallery #tech-lead{
+        grid-row: 2 / 6;
+        grid-column: 3 / 4;
+    }
+    
+    .profile-gallery #ux-designer{
+        grid-row: 6 / 10;
+        grid-column: 1 / 2;
+    }
+    
+    .profile-gallery #developer-one{
+        grid-row: 7 / 11;
+        grid-column: 2 / 3;
+    }
+    
+    .profile-gallery #developer-two{
+        grid-row: 6 / 10;
+        grid-column: 3 / 4;
+    }
+
+    .profile-gallery article {
+        height: 280px;
+        width: 33%;
+        margin: 0 auto;
+    }
 }
